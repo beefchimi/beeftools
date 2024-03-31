@@ -2,6 +2,8 @@ import {describe, it, expect} from 'vitest';
 
 import {getErrorMessage} from '../error';
 
+// TODO: Test condition where we return
+// GENERIC_ERROR_MESSAGE
 describe('error utilities', () => {
   describe('getErrorMessage()', () => {
     it('returns message from basic object', async () => {

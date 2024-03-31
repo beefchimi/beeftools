@@ -3,6 +3,7 @@ import {describe, it, expect} from 'vitest';
 import {
   arrayDedupe,
   arrayOfLength,
+  arrayPaginate,
   arrayShallowEquals,
   arrayShuffle,
   typedObjectKeys,
@@ -33,6 +34,26 @@ describe('array utilities', () => {
 
       expect(result).toStrictEqual([0, 1, 2, 3, 4, 5]);
       expect(result).toHaveLength(mockLength);
+    });
+  });
+
+  describe('arrayPaginate()', () => {
+    it('returns matching array if `pageSize` is less than or equal to the original array', async () => {
+      const original = [0, 1, 2, 3, 4];
+      const paginated = arrayPaginate(original);
+
+      expect(paginated).toHaveLength(1);
+      expect(arrayShallowEquals(original, paginated[0])).toBe(true);
+    });
+
+    it('paginates the array', async () => {
+      const original = [0, 1, 2, 3, 4];
+      const paginated = arrayPaginate(original, 2);
+
+      expect(paginated).toHaveLength(3);
+      expect(paginated[0]).toStrictEqual([0, 1]);
+      expect(paginated[1]).toStrictEqual([2, 3]);
+      expect(paginated[2]).toStrictEqual([4]);
     });
   });
 
@@ -75,11 +96,11 @@ describe('array utilities', () => {
         bar: 'two',
         beef: false,
         chimi: null,
-        earwurm: undefined,
+        tools: undefined,
       };
       const result = typedObjectKeys(mockObj);
 
-      expect(result).toStrictEqual(['foo', 'bar', 'beef', 'chimi', 'earwurm']);
+      expect(result).toStrictEqual(['foo', 'bar', 'beef', 'chimi', 'tools']);
       expect(result).toStrictEqual(Object.keys(mockObj));
     });
   });

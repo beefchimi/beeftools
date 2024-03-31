@@ -1,5 +1,3 @@
-import {objFilterNullish} from './object';
-
 interface CalcProgressOptions {
   min?: number;
   max?: number;
@@ -20,12 +18,8 @@ export function assertFloat(value?: unknown): value is number {
   return assertNumber(value) && !Number.isInteger(value);
 }
 
-export function calcProgress(value = 0, options?: CalcProgressOptions) {
-  const defaultOptions = {min: 0, max: 100, round: false};
-  const {min, max, round} = {
-    ...defaultOptions,
-    ...objFilterNullish(options),
-  };
+export function calcProgress(value = 0, options: CalcProgressOptions = {}) {
+  const {min = 0, max = 100, round = false} = options;
 
   const range = max - min;
   const adjustedValue = value - min;
@@ -55,8 +49,14 @@ export function trimDecimals(value = 0, decimals = 2) {
 
   if (parts.length <= 1) return value;
 
-  const trimmedDecimals = parts[1].slice(0, decimals);
-  const joined = [parts[0], trimmedDecimals].join('.');
+  // TODO: `first/last` are only necessary because TypeScript
+  // cannot determine that the `parts.length` condition guards
+  // against each segment being `undefined`.
+  const first = parts[0] ?? '';
+  const last = parts[1] ?? '';
+
+  const trimmedDecimals = last.slice(0, decimals);
+  const joined = [first, trimmedDecimals].join('.');
 
   return parseFloat(joined);
 }

@@ -33,8 +33,8 @@ describe('string utilities', () => {
 
   describe('splitRetain()', () => {
     it('splits the string by match', async () => {
-      const result = splitRetain('Hello world foo bar Earwurm', 'world');
-      expect(result).toStrictEqual(['Hello ', 'world', ' foo bar Earwurm']);
+      const result = splitRetain('Hello world foo bar Beefchimi', 'world');
+      expect(result).toStrictEqual(['Hello ', 'world', ' foo bar Beefchimi']);
     });
   });
 });

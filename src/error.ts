@@ -7,7 +7,9 @@ interface BasicError {
   message: string;
 }
 
-function assertBasicError(error: unknown): error is BasicError {
+export const GENERIC_ERROR_MESSAGE = 'An unknown error has occurred.';
+
+export function assertBasicError(error: unknown): error is BasicError {
   return (
     typeof error === 'object' &&
     error !== null &&
@@ -16,7 +18,7 @@ function assertBasicError(error: unknown): error is BasicError {
   );
 }
 
-function convertUnknownError(error: unknown): BasicError {
+export function convertUnknownError(error: unknown): BasicError {
   if (assertBasicError(error)) return error;
 
   try {
@@ -29,5 +31,6 @@ function convertUnknownError(error: unknown): BasicError {
 }
 
 export function getErrorMessage(error: unknown) {
-  return convertUnknownError(error).message;
+  const {message} = convertUnknownError(error);
+  return message || GENERIC_ERROR_MESSAGE;
 }

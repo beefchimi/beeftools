@@ -1,12 +1,15 @@
 export {
   arrayDedupe,
   arrayOfLength,
+  arrayPaginate,
   arrayShallowEquals,
   arrayShuffle,
   typedObjectKeys,
 } from './array';
 
-export {getErrorMessage} from './error';
+export {classNames, variationName} from './classNames';
+
+export {assertBasicError, convertUnknownError, getErrorMessage} from './error';
 
 export {
   assertNumber,
@@ -29,7 +32,14 @@ export {
   splitRetain,
 } from './string';
 
-export {supportDom, supportMatchMedia} from './support';
+export {
+  supportDom,
+  supportNavigator,
+  supportMatchMedia,
+  supportResizeObserver,
+  supportSafari,
+} from './support';
+
 export {timeMeasurement, msToSec, secToMs} from './time';
 export {debounce, sleep} from './wait';
 

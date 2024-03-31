@@ -1,3 +1,5 @@
+// Consider switching to something like:
+// https://github.com/chodorowicz/ts-debounce
 export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
   callback: T,
   timeout: number,
