@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "codezombiech.gitignore",
+    "github.vscode-github-actions",
+    "EditorConfig.editorconfig",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "aaron-bond.better-comments",
+    "DavidAnson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}
