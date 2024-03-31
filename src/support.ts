@@ -1,5 +1,12 @@
 export function supportDom() {
-  return typeof window?.document?.createElement !== 'undefined';
+  // It is critical that the first `window` condition be isolated,
+  // otherwise the server will throw a `ReferenceError`.
+
+  return (
+    // eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+    typeof window !== 'undefined' &&
+    typeof window.document?.createElement !== 'undefined'
+  );
 }
 
 export function supportNavigator() {
