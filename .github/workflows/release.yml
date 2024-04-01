@@ -30,8 +30,8 @@ jobs:
         with:
           title: '🦋 [Release] Version packages'
           commit: '🦋 [Changesets] Prepare for next release'
-          version: npm release:version
-          publish: npm release:publish
+          version: npm run release:version
+          publish: npm run release:publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

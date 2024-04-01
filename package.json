@@ -53,7 +53,8 @@
     "test:ui": "vitest --ui",
     "coverage": "vitest --run --coverage",
     "report": "changeset",
-    "release": "npm run build && changeset publish"
+    "release:version": "changeset version",
+    "release:publish": "changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
