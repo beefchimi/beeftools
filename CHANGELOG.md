@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.0.3
+
+### Patch Changes
+
+- a0805c4: Fix broken NPM publish.
+
 ## 0.0.2
 
 ### Patch Changes
