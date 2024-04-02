@@ -7,7 +7,13 @@ export {
   typedObjectKeys,
 } from './array';
 
-export {classNames, variationName} from './classNames';
+export {
+  classNames,
+  variationName,
+  // Easier to use aliases
+  classNames as clx,
+  variationName as vrx,
+} from './classNames';
 
 export {assertBasicError, convertUnknownError, getErrorMessage} from './error';
 
