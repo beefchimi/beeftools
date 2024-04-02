@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.0.4
+
+### Patch Changes
+
+- ec9142a: Provide aliases for classNames (clx) and variationName (vrx)
+
 ## 0.0.3
 
 ### Patch Changes
