@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.0.5
+
+### Patch Changes
+
+- 4f90c71: Switch to renamed eslint-config-love package.
+
 ## 0.0.4
 
 ### Patch Changes
