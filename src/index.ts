@@ -40,10 +40,11 @@ export {
 
 export {
   supportDom,
-  supportNavigator,
   supportMatchMedia,
+  supportNavigator,
   supportResizeObserver,
   supportSafari,
+  supportUUID,
 } from './support';
 
 export {timeMeasurement, msToSec, secToMs} from './time';

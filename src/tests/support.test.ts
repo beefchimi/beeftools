@@ -10,10 +10,6 @@ describe('support utilities', () => {
     });
   });
 
-  describe('supportNavigator()', () => {
-    it.todo('write tests');
-  });
-
   describe('supportMatchMedia()', () => {
     it('returns false in this test environment', async () => {
       const result = supportMatchMedia();
@@ -21,11 +17,19 @@ describe('support utilities', () => {
     });
   });
 
+  describe('supportNavigator()', () => {
+    it.todo('write tests');
+  });
+
   describe('supportResizeObserver()', () => {
     it.todo('write tests');
   });
 
   describe('supportSafari()', () => {
+    it.todo('write tests');
+  });
+
+  describe('supportUUID()', () => {
     it.todo('write tests');
   });
 });
