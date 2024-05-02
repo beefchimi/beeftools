@@ -70,6 +70,20 @@ describe('array utilities', () => {
       const result = arrayShallowEquals([true, false], [false, true]);
       expect(result).toBe(false);
     });
+
+    it('returns `true` when sorting is applied ahead of time', async () => {
+      const original1 = ['a', 'B', 'c', 'D', 'e', 'F'];
+      const original2 = ['F', 'e', 'D', 'c', 'B', 'a'];
+
+      const resultBefore = arrayShallowEquals(original1, original2);
+      expect(resultBefore).toBe(false);
+
+      const sorted1 = original1.toSorted();
+      const sorted2 = original2.toSorted();
+
+      const resultAfter = arrayShallowEquals(sorted1, sorted2);
+      expect(resultAfter).toBe(true);
+    });
   });
 
   describe('arrayShuffle()', () => {
