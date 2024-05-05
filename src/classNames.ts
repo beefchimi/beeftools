@@ -30,6 +30,7 @@ export function variationName(
 
   const firstLetter = variant.charAt(0).toUpperCase();
   const className = `${prefix.toLowerCase()}${firstLetter}${variant.slice(1)}`;
+  const retrieved = styles ? styles[className] : '';
 
-  return styles ? styles[className] : className;
+  return retrieved || className;
 }
