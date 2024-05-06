@@ -32,5 +32,12 @@ export function convertUnknownError(error: unknown): BasicError {
 
 export function getErrorMessage(error: unknown) {
   const {message} = convertUnknownError(error);
-  return message || GENERIC_ERROR_MESSAGE;
+  const validMessage = Boolean(
+    typeof message === 'string' &&
+      message.length &&
+      message !== 'null' &&
+      message !== '{}',
+  );
+
+  return validMessage ? message : GENERIC_ERROR_MESSAGE;
 }
