@@ -5,6 +5,13 @@ export function arrayDedupe<T extends unknown[]>(...arrays: T[]) {
   return [...new Set([...arrays.flat()])];
 }
 
+export function arrayEquals(one: Primitive[], two: Primitive[]) {
+  // This utility does only a shallow comparison, and is order dependant.
+  // You may need to call `.toSorted()` and/or serialize your arguments.
+  const equalLength = one.length === two.length;
+  return equalLength && one.every((value, index) => value === two[index]);
+}
+
 export function arrayOfLength(length = 0) {
   const safeLength = Math.max(0, length);
   const ghostArray = Array.from(Array(safeLength));
@@ -25,11 +32,6 @@ export function arrayPaginate<T>(array: T[], pageSize = 10): T[][] {
     const end = start + safeSize;
     return shallowClone.slice(start, end);
   });
-}
-
-export function arrayShallowEquals(one: Primitive[], two: Primitive[]) {
-  const equalLength = one.length === two.length;
-  return equalLength && one.every((value, index) => value === two[index]);
 }
 
 export function arrayShuffle<T>(array: T[]): T[] {

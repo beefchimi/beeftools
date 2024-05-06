@@ -1,8 +1,8 @@
 export {
   arrayDedupe,
+  arrayEquals,
   arrayOfLength,
   arrayPaginate,
-  arrayShallowEquals,
   arrayShuffle,
   typedObjectKeys,
 } from './array';
