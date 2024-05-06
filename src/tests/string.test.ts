@@ -2,7 +2,7 @@ import {describe, it, expect} from 'vitest';
 
 import {
   capitalize,
-  // escapeStringRegexp,
+  escapeStringRegexp,
   kebabToPascal,
   splitRetain,
 } from '../string';
@@ -16,12 +16,35 @@ describe('string utilities', () => {
   });
 
   describe('escapeStringRegexp()', () => {
-    // TODO: Determine the best way to get around these escape characters.
-    // const result = escapeStringRegexp('start | \ { } ( ) [ ] ^ $ + * ? . - end');
-    // expect(result).toBe('start \| \\ \{ \} \( \) \[ \] \^ \$ \+ \* \? \. \- end');
-    it.todo(
-      'returns a string with an escape character in front of each special character',
-    );
+    it('escapes special characters', () => {
+      // prettier-ignore
+      // eslint-disable-next-line no-useless-escape
+      const input = 'start_|\\{}()[\]^$+*?.-_end';
+      const result = escapeStringRegexp(input);
+
+      expect(result).toBe(
+        'start_\\|\\\\\\{\\}\\(\\)\\[\\]\\^\\$\\+\\*\\?\\.\\x2d_end',
+      );
+    });
+
+    it('escapes a dash character', () => {
+      const input = 'foo-bar';
+      const result = escapeStringRegexp(input);
+
+      expect(result).toBe('foo\\x2dbar');
+    });
+
+    it('does nothing to an empty string', () => {
+      const result = escapeStringRegexp('');
+      expect(result).toBe('');
+    });
+
+    it('does nothing to a string with no special characters', () => {
+      const input = 'hello world';
+      const result = escapeStringRegexp(input);
+
+      expect(result).toBe(input);
+    });
   });
 
   describe('kebabToPascal()', () => {
