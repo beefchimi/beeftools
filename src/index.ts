@@ -28,7 +28,7 @@ export {
   trimDecimals,
 } from './number';
 
-export {objFilterNullish} from './object';
+export {isObject, objFilterNullish} from './object';
 export {randomFloat, randomInteger, randomBoolean} from './random';
 
 export {
