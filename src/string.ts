@@ -1,3 +1,11 @@
+export function isString(
+  item?: unknown,
+  requireLength = false,
+): item is string {
+  const passed = typeof item === 'string';
+  return passed && requireLength ? item.length > 0 : passed;
+}
+
 export function capitalize(word = '') {
   return `${word.charAt(0).toUpperCase()}${word.slice(1).toLocaleLowerCase()}`;
 }

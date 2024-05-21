@@ -32,6 +32,7 @@ export {isObject, objFilterNullish} from './object';
 export {randomFloat, randomInteger, randomBoolean} from './random';
 
 export {
+  isString,
   capitalize,
   escapeStringRegexp,
   kebabToPascal,
