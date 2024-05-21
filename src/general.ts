@@ -1,4 +1,5 @@
 import {objFilterNullish} from './object';
+import {isString} from './string';
 
 export function noop() {}
 
@@ -25,7 +26,7 @@ export function isEmpty(
     return true;
   }
 
-  if (Array.isArray(value) || typeof value === 'string') {
+  if (Array.isArray(value) || isString(value)) {
     return !value.length;
   }
 

@@ -1,3 +1,5 @@
+import {isString} from './string';
+
 type Variants = Record<string, string | number | boolean | null | undefined>;
 
 type ClassNameArgs = Array<Variants | string | undefined>;
@@ -12,9 +14,7 @@ function convertVariantsToNames(variants?: Variants) {
 export function classNames(baseName: string, ...args: ClassNameArgs) {
   const additionalNames = args.length
     ? args.flatMap((addition) =>
-        typeof addition === 'string'
-          ? addition
-          : convertVariantsToNames(addition),
+        isString(addition) ? addition : convertVariantsToNames(addition),
       )
     : [];
 
