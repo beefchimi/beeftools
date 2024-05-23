@@ -1,8 +1,8 @@
 export {
   arrayDedupe,
+  arrayEquals,
   arrayOfLength,
   arrayPaginate,
-  arrayShallowEquals,
   arrayShuffle,
   typedObjectKeys,
 } from './array';
@@ -28,10 +28,11 @@ export {
   trimDecimals,
 } from './number';
 
-export {objFilterNullish} from './object';
+export {isObject, objFilterNullish} from './object';
 export {randomFloat, randomInteger, randomBoolean} from './random';
 
 export {
+  isString,
   capitalize,
   escapeStringRegexp,
   kebabToPascal,

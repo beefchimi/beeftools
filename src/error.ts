@@ -1,4 +1,5 @@
-import type {AnyObj} from './types';
+import {isObject} from './object';
+import {isString} from './string';
 
 // This helper was adapted from:
 // https://kentcdodds.com/blog/get-a-catch-block-error-message-with-typescript
@@ -10,12 +11,7 @@ interface BasicError {
 export const GENERIC_ERROR_MESSAGE = 'An unknown error has occurred.';
 
 export function assertBasicError(error: unknown): error is BasicError {
-  return (
-    typeof error === 'object' &&
-    error !== null &&
-    'message' in error &&
-    typeof (error as AnyObj).message === 'string'
-  );
+  return isObject(error) && 'message' in error && isString(error.message);
 }
 
 export function convertUnknownError(error: unknown): BasicError {
@@ -32,5 +28,9 @@ export function convertUnknownError(error: unknown): BasicError {
 
 export function getErrorMessage(error: unknown) {
   const {message} = convertUnknownError(error);
-  return message || GENERIC_ERROR_MESSAGE;
+  const validMessage = Boolean(
+    isString(message, true) && message !== 'null' && message !== '{}',
+  );
+
+  return validMessage ? message : GENERIC_ERROR_MESSAGE;
 }

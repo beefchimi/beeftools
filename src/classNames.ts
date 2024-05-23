@@ -1,3 +1,5 @@
+import {isString} from './string';
+
 type Variants = Record<string, string | number | boolean | null | undefined>;
 
 type ClassNameArgs = Array<Variants | string | undefined>;
@@ -12,9 +14,7 @@ function convertVariantsToNames(variants?: Variants) {
 export function classNames(baseName: string, ...args: ClassNameArgs) {
   const additionalNames = args.length
     ? args.flatMap((addition) =>
-        typeof addition === 'string'
-          ? addition
-          : convertVariantsToNames(addition),
+        isString(addition) ? addition : convertVariantsToNames(addition),
       )
     : [];
 
@@ -30,6 +30,7 @@ export function variationName(
 
   const firstLetter = variant.charAt(0).toUpperCase();
   const className = `${prefix.toLowerCase()}${firstLetter}${variant.slice(1)}`;
+  const retrieved = styles ? styles[className] : '';
 
-  return styles ? styles[className] : className;
+  return retrieved || className;
 }

@@ -1,3 +1,5 @@
+import {isString} from './string';
+
 export function supportDom() {
   // It is critical that the first `window` condition be isolated,
   // otherwise the server will throw a `ReferenceError`.
@@ -19,7 +21,7 @@ export function supportMatchMedia() {
 
 export function supportNavigator() {
   return (
-    typeof navigator !== 'undefined' && typeof navigator.userAgent === 'string'
+    typeof navigator !== 'undefined' && isString(navigator.userAgent, true)
   );
 }
 
