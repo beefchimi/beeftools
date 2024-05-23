@@ -1,5 +1,17 @@
 # beeftools
 
+## 0.1.0
+
+### Minor Changes
+
+- aa04ae3: Renamed arrayShallowEquals to arrayEquals.
+
+### Patch Changes
+
+- aa04ae3: classNames no returns an empty string instead of undefined.
+- 167cfb5: New immediate argument for debounce + a few new utilities.
+- aa04ae3: getErrorMessage now returns generic message instead of null or empty object.
+
 ## 0.0.5
 
 ### Patch Changes
