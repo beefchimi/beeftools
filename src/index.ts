@@ -16,6 +16,7 @@ export {
 } from './classNames';
 
 export {assertBasicError, convertUnknownError, getErrorMessage} from './error';
+export {isEmpty, noop} from './general';
 
 export {
   assertNumber,
@@ -49,7 +50,7 @@ export {
 } from './support';
 
 export {timeMeasurement, msToSec, secToMs} from './time';
-export {debounce, sleep} from './wait';
+export {debounce, sleep, throttle} from './wait';
 
 export type {
   Primitive,
