@@ -38,6 +38,8 @@ export const timeMeasurement = {
   weeksPerMonth,
   weeksPerYear,
   daysPerWeek,
+  daysPerMonth,
+  daysPerYear,
   hrsPerDay,
   hrsPerWeek,
   hrsPerMonth,
