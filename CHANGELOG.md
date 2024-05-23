@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.1.2
+
+### Patch Changes
+
+- f10da16: Export missing time measurements.
+
 ## 0.1.1
 
 ### Patch Changes
