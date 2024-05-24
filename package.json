@@ -45,7 +45,7 @@
     "clean": "rm -rf coverage && rm -rf dist && rm -rf node_modules/.cache && rm -rf node_modules/.vite",
     "nuke": "npm run clean && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force",
     "build": "npm run clean && tsc && vite build",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
