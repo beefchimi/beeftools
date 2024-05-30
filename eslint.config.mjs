@@ -5,19 +5,21 @@ import pluginPrettier from 'eslint-plugin-prettier/recommended';
 
 export default [
   {
-    ...configLove,
+    ignores: ['coverage/**', 'dist/**'],
+  },
+  configLove,
+  pluginPrettier,
+  {
+    name: 'custom-rules',
+    files: ['**/*.ts', '**/*.js', '**/*.mjs'],
     languageOptions: {
       ...configLove.languageOptions,
-      ecmaVersion: 2022,
-      sourceType: 'module',
       globals: {
         ...globals.browser,
       },
+      ecmaVersion: 2022,
+      sourceType: 'module',
     },
-    files: ['*.ts', '*.mjs'],
-  },
-  pluginPrettier,
-  {
     rules: {
       'no-console': 'warn',
       // '@typescript-eslint/explicit-function-return-type': 'off',
