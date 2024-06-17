@@ -9,9 +9,19 @@ describe('class name utilities', () => {
       expect(result).toBe('base class1 class2');
     });
 
+    it('handles undefined base name', () => {
+      const result = classNames();
+      expect(result).toBe('');
+    });
+
     it('handles undefined or empty arguments', () => {
       const result = classNames('base', undefined, {}, 'last');
       expect(result).toBe('base last');
+    });
+
+    it('trims whitespace', () => {
+      const result = classNames(undefined, 'first-variant', {}, 'last var  ');
+      expect(result).toBe('first-variant last var');
     });
 
     it('filters out falsy variants', () => {
@@ -31,6 +41,11 @@ describe('class name utilities', () => {
   });
 
   describe('variationName()', () => {
+    it('returns empty string if no prefix is provided', () => {
+      const result = variationName();
+      expect(result).toBe('');
+    });
+
     it('returns empty string if no variant is provided', () => {
       const result = variationName('prefix');
       expect(result).toBe('');

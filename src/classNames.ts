@@ -11,22 +11,22 @@ function convertVariantsToNames(variants?: Variants) {
     : [];
 }
 
-export function classNames(baseName: string, ...args: ClassNameArgs) {
+export function classNames(baseName = '', ...args: ClassNameArgs) {
   const additionalNames = args.length
     ? args.flatMap((addition) =>
         isString(addition) ? addition : convertVariantsToNames(addition),
       )
     : [];
 
-  return [baseName, ...additionalNames.filter(Boolean)].join(' ');
+  return [baseName, ...additionalNames.filter(Boolean)].join(' ').trim();
 }
 
 export function variationName(
-  prefix: string,
+  prefix = '',
   variant?: string,
   styles?: CSSModuleClasses,
 ) {
-  if (!variant) return '';
+  if (!prefix || !variant) return '';
 
   const firstLetter = variant.charAt(0).toUpperCase();
   const className = `${prefix.toLowerCase()}${firstLetter}${variant.slice(1)}`;
