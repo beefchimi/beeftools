@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.1.4
+
+### Patch Changes
+
+- 25d57ee: classNames and variationName can now accept undefined.
+
 ## 0.1.3
 
 ### Patch Changes
