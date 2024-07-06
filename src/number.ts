@@ -45,6 +45,8 @@ export function roundNumber(value = 0, decimals = 0) {
 }
 
 export function trimDecimals(value = 0, decimals = 2) {
+  if (decimals === 0) return Math.trunc(value);
+
   const parts = `${value}`.split('.').filter((part) => part !== '.');
 
   if (parts.length <= 1) return value;

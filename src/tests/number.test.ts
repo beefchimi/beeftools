@@ -195,5 +195,10 @@ describe('number utilities', () => {
       const result = trimDecimals(123.456789, 3);
       expect(result).toBe(123.456);
     });
+
+    it('returns an integer when decimals is `0`', async () => {
+      const result = trimDecimals(123.456789, 0);
+      expect(result).toBe(123);
+    });
   });
 });
