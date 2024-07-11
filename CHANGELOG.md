@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.1.5
+
+### Patch Changes
+
+- e073e2f: New prefersReducedMotion and early return within trimDecimals.
+
 ## 0.1.4
 
 ### Patch Changes
