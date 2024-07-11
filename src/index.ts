@@ -17,6 +17,7 @@ export {
 
 export {assertBasicError, convertUnknownError, getErrorMessage} from './error';
 export {isEmpty, noop} from './general';
+export {prefersReducedMotion} from './media';
 
 export {
   assertNumber,
