@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest';
 
+import {noop} from '../general';
 import {
   isString,
   capitalize,
@@ -23,7 +24,7 @@ describe('string utilities', () => {
       expect(isString(123)).toBe(false);
       expect(isString({})).toBe(false);
       expect(isString([])).toBe(false);
-      expect(isString(() => {})).toBe(false);
+      expect(isString(noop)).toBe(false);
 
       // With `requireLength` argument.
       expect(isString(null, true)).toBe(false);
@@ -31,7 +32,7 @@ describe('string utilities', () => {
       expect(isString(123, true)).toBe(false);
       expect(isString({}, true)).toBe(false);
       expect(isString([], true)).toBe(false);
-      expect(isString(() => {}, true)).toBe(false);
+      expect(isString(noop, true)).toBe(false);
     });
 
     it('returns `true` for non-empty strings when passed `requireLength`', () => {
