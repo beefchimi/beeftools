@@ -5,6 +5,8 @@ import {
   capitalize,
   escapeStringRegexp,
   kebabToPascal,
+  pascalToKebab,
+  slugify,
   splitRetain,
 } from '../string';
 
@@ -46,6 +48,11 @@ describe('string utilities', () => {
       const result = capitalize('hello world');
       expect(result).toBe('Hello world');
     });
+
+    it('trims whitespace', async () => {
+      const result = capitalize('  foo bar from Mars  ');
+      expect(result).toBe('Foo bar from mars');
+    });
   });
 
   describe('escapeStringRegexp()', () => {
@@ -84,6 +91,49 @@ describe('string utilities', () => {
     it('converts the provided slug', async () => {
       const result = kebabToPascal('hello-world-foo-bar');
       expect(result).toBe('HelloWorldFooBar');
+    });
+
+    it('trims whitespace', async () => {
+      const result = kebabToPascal('  Hello-it-is-me  ');
+      expect(result).toBe('HelloItIsMe');
+    });
+  });
+
+  describe('pascalToKebab()', () => {
+    it('converts the provided term', async () => {
+      const result = pascalToKebab('HelloWorldFooBar');
+      expect(result).toBe('hello-world-foo-bar');
+    });
+
+    it('trims whitespace', async () => {
+      const result = pascalToKebab('  HelloWorldFooBar   ');
+      expect(result).toBe('hello-world-foo-bar');
+    });
+
+    it('trims leading and trailing dashes', async () => {
+      const result = pascalToKebab('---HelloWorldFooBar---');
+      expect(result).toBe('hello-world-foo-bar');
+    });
+
+    it('removes unsupported characters', async () => {
+      const result = pascalToKebab('FooBar.FromMars');
+      expect(result).toBe('foo-bar-from-mars');
+    });
+  });
+
+  describe('slugify()', () => {
+    it('converts the provided term', async () => {
+      const result = slugify('Hello World foo bar');
+      expect(result).toBe('hello-world-foo-bar');
+    });
+
+    it('trims whitespace', async () => {
+      const result = slugify(
+        '  HelloWorldFooBar baz-quiz Cheese-Whiz-InTheFridge  ',
+      );
+      expect(result).toBe(
+        'hello-world-foo-bar-baz-quiz-cheese-whiz-in-the-fridge',
+      );
     });
   });
 
