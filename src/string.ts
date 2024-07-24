@@ -7,7 +7,8 @@ export function isString(
 }
 
 export function capitalize(word = '') {
-  return `${word.charAt(0).toUpperCase()}${word.slice(1).toLocaleLowerCase()}`;
+  const trimmed = word.trim();
+  return `${trimmed.charAt(0).toUpperCase()}${trimmed.slice(1).toLocaleLowerCase()}`;
 }
 
 export function escapeStringRegexp(value = '') {
@@ -17,7 +18,33 @@ export function escapeStringRegexp(value = '') {
 }
 
 export function kebabToPascal(value = '') {
-  return value.split('-').map(capitalize).join('');
+  return value.trim().split('-').map(capitalize).join('');
+}
+
+export function pascalToKebab(value = '') {
+  return (
+    value
+      .trim()
+      // Remove dashes from the start
+      .replace(/^-+/g, '')
+      // Remove dashes from the end
+      .replace(/-+$/g, '')
+      // Remove disallowed characters
+      // TODO: Expand upon this. We should remove all special characters.
+      .replace(/\./g, '')
+      // Insert a `-` before every capital letter (ignoring first character)
+      .replace(/(?!\b)([A-Z])/g, '-$1')
+      .toLowerCase()
+  );
+}
+
+export function slugify(value = '') {
+  // It is debatable if we should just merge `pascalToKebab` into this
+  // function... as they are mostly redundant.
+  const despaced = value.trim().split(' ').filter(Boolean);
+  const depascalled = despaced.map((term) => pascalToKebab(term));
+
+  return depascalled.join('-');
 }
 
 export function splitRetain(value = '', match = '') {

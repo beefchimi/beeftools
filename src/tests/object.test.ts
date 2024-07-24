@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest';
 
+import {noop} from '../general';
 import {isObject, objFilterNullish} from '../object';
 
 describe('object utilities', () => {
@@ -15,7 +16,7 @@ describe('object utilities', () => {
       expect(isObject(123)).toBe(false);
       expect(isObject('string')).toBe(false);
       expect(isObject([])).toBe(false);
-      expect(isObject(() => {})).toBe(false);
+      expect(isObject(noop)).toBe(false);
 
       // With `requireSize` argument.
       expect(isObject(null, true)).toBe(false);
@@ -23,7 +24,7 @@ describe('object utilities', () => {
       expect(isObject(123, true)).toBe(false);
       expect(isObject('string', true)).toBe(false);
       expect(isObject([], true)).toBe(false);
-      expect(isObject(() => {}, true)).toBe(false);
+      expect(isObject(noop, true)).toBe(false);
     });
 
     it('returns `true` for non-empty objects when passed `requireSize`', () => {
