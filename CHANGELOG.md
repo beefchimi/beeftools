@@ -1,5 +1,12 @@
 # beeftools
 
+## 0.1.6
+
+### Patch Changes
+
+- c1c0d09: Bump required node version to 22.4
+- c1c0d09: Add new pascalToKebab() and slugify() utilities.
+
 ## 0.1.5
 
 ### Patch Changes
