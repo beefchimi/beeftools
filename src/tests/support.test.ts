@@ -94,36 +94,32 @@ describe('support utilities', () => {
   });
 
   describe('supportNavigator()', () => {
-    let backup: any;
-
-    beforeEach(() => {
-      backup = global.navigator;
-    });
+    const backup = global.navigator;
 
     afterEach(() => {
-      delete (global as any).navigator;
-
+      // Not sure if we actually need to do this.
       if (backup) {
         global.navigator = backup;
       }
     });
 
     it('returns `true` if `navigator` and `navigator.userAgent` are defined', () => {
-      (global as any).navigator = {userAgent: 'Mozilla/5.0'};
+      vi.stubGlobal('navigator', {userAgent: 'Mozilla/5.0'});
       expect(supportNavigator()).toBe(true);
     });
 
     it('returns `false` if `navigator` is `undefined`', () => {
+      vi.stubGlobal('navigator', undefined);
       expect(supportNavigator()).toBe(false);
     });
 
     it('returns `false` if `navigator.userAgent` is `undefined`', () => {
-      (global as any).navigator = {};
+      vi.stubGlobal('navigator', {});
       expect(supportNavigator()).toBe(false);
     });
 
     it('returns `false` if `navigator.userAgent` is not a `string`', () => {
-      (global as any).navigator = {userAgent: 12345};
+      vi.stubGlobal('navigator', {userAgent: 12345});
       expect(supportNavigator()).toBe(false);
     });
   });
@@ -171,25 +167,20 @@ describe('support utilities', () => {
   });
 
   describe('supportSafari()', () => {
-    let backup: any;
-
-    beforeEach(() => {
-      backup = global.navigator;
-    });
+    const backup = global.navigator;
 
     afterEach(() => {
-      delete (global as any).navigator;
-
+      // Not sure if we actually need to do this.
       if (backup) {
         global.navigator = backup;
       }
     });
 
     it('returns `true` if `supportNavigator` is `true` and user agent indicates Safari', () => {
-      (global as any).navigator = {
+      vi.stubGlobal('navigator', {
         userAgent:
           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15',
-      };
+      });
       expect(supportSafari()).toBe(true);
     });
 
@@ -198,19 +189,20 @@ describe('support utilities', () => {
     });
 
     it('returns `false` if user agent does not indicate Safari', () => {
-      (global as any).navigator = {
+      vi.stubGlobal('navigator', {
         userAgent:
           'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
-      };
+      });
       expect(supportSafari()).toBe(false);
     });
 
     it('returns `false` if `navigator` is `undefined`', () => {
+      vi.stubGlobal('navigator', undefined);
       expect(supportSafari()).toBe(false);
     });
 
     it('returns `false` if user agent is `undefined`', () => {
-      (global as any).navigator = {};
+      vi.stubGlobal('navigator', {});
       expect(supportSafari()).toBe(false);
     });
   });
