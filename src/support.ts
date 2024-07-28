@@ -29,6 +29,12 @@ export function supportResizeObserver() {
   return supportDom() && 'ResizeObserver' in window;
 }
 
+export function supportFirefoxMobile() {
+  // Currently only targets FireFox for iOS... but actually matches many
+  // Safari user agents... so more work needs to be done before this is suitable.
+  return supportNavigator() && /^Mozilla\/5.0 \(iP/.test(navigator.userAgent);
+}
+
 export function supportSafari() {
   return (
     supportNavigator() &&

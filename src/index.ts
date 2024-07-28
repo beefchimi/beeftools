@@ -46,6 +46,7 @@ export {
   supportMatchMedia,
   supportNavigator,
   supportResizeObserver,
+  supportFirefoxMobile,
   supportSafari,
   supportUUID,
 } from './support';
