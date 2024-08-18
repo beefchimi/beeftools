@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.1.7
+
+### Patch Changes
+
+- f7bf606: Downgrade Node back to LTS.
+
 ## 0.1.6
 
 ### Patch Changes
