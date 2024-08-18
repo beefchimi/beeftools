@@ -30,12 +30,18 @@ export function supportResizeObserver() {
 }
 
 export function supportFirefoxMobile() {
-  // Currently only targets FireFox for iOS... but actually matches many
-  // Safari user agents... so more work needs to be done before this is suitable.
-  return supportNavigator() && /^Mozilla\/5.0 \(iP/.test(navigator.userAgent);
+  // Currently only targets FireFox for iOS. We may want to distinguish
+  // between other mobile platforms.
+  return (
+    supportNavigator() &&
+    /^Mozilla\/5.0 \(iP/.test(navigator.userAgent) &&
+    /FxiOS/i.test(navigator.userAgent)
+  );
 }
 
 export function supportSafari() {
+  // Currently does not isolate against mobile variants, such as
+  // Firefox iOS. We may want to check for this.
   return (
     supportNavigator() &&
     /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
