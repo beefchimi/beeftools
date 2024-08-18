@@ -5,9 +5,19 @@ import {
   supportMatchMedia,
   supportNavigator,
   supportResizeObserver,
+  supportFirefoxMobile,
   supportSafari,
   supportUUID,
 } from '../support';
+import {
+  UA_FIREFOX_MAC,
+  UA_FIREFOX_IPHONE,
+  UA_SAFARI_MAC,
+  UA_SAFARI_IPHONE,
+  UA_SAFARI_IPAD,
+  UA_SAFARI_WIN,
+  UA_ANDROID_PIXEL,
+} from './fixtures';
 
 describe('support utilities', () => {
   describe('supportDom()', () => {
@@ -149,6 +159,37 @@ describe('support utilities', () => {
     });
   });
 
+  describe('supportFirefoxMobile()', () => {
+    const backup = global.navigator;
+
+    afterEach(() => {
+      global.navigator = backup;
+    });
+
+    it('returns `true` if `supportNavigator` is `true` and user agent matches', () => {
+      vi.stubGlobal('navigator', {userAgent: UA_FIREFOX_MAC});
+      expect(supportFirefoxMobile()).toBe(false);
+
+      vi.stubGlobal('navigator', {userAgent: UA_FIREFOX_IPHONE});
+      expect(supportFirefoxMobile()).toBe(true);
+    });
+
+    it('returns `false` if `supportNavigator` is `false`', () => {
+      expect(supportFirefoxMobile()).toBe(false);
+
+      vi.stubGlobal('navigator', undefined);
+      expect(supportFirefoxMobile()).toBe(false);
+
+      vi.stubGlobal('navigator', {});
+      expect(supportFirefoxMobile()).toBe(false);
+    });
+
+    it('returns `false` if user agent does not indicate FxiOS', () => {
+      vi.stubGlobal('navigator', {userAgent: UA_SAFARI_MAC});
+      expect(supportFirefoxMobile()).toBe(false);
+    });
+  });
+
   describe('supportSafari()', () => {
     const backup = global.navigator;
 
@@ -157,34 +198,35 @@ describe('support utilities', () => {
     });
 
     it('returns `true` if `supportNavigator` is `true` and user agent indicates Safari', () => {
-      vi.stubGlobal('navigator', {
-        userAgent:
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15',
-      });
+      vi.stubGlobal('navigator', {userAgent: UA_SAFARI_MAC});
+      expect(supportSafari()).toBe(true);
+
+      vi.stubGlobal('navigator', {userAgent: UA_SAFARI_IPHONE});
+      expect(supportSafari()).toBe(true);
+
+      vi.stubGlobal('navigator', {userAgent: UA_SAFARI_IPAD});
       expect(supportSafari()).toBe(true);
     });
 
     it('returns `false` if `supportNavigator` is `false`', () => {
       expect(supportSafari()).toBe(false);
-    });
 
-    it('returns `false` if user agent does not indicate Safari', () => {
-      vi.stubGlobal('navigator', {
-        userAgent:
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
-      });
-      expect(supportSafari()).toBe(false);
-    });
-
-    it('returns `false` if `navigator` is `undefined`', () => {
       vi.stubGlobal('navigator', undefined);
       expect(supportSafari()).toBe(false);
-    });
 
-    it('returns `false` if user agent is `undefined`', () => {
       vi.stubGlobal('navigator', {});
       expect(supportSafari()).toBe(false);
     });
+
+    it('returns `false` if user agent indicates Safari, but also includes chrome or android', () => {
+      vi.stubGlobal('navigator', {userAgent: UA_SAFARI_WIN});
+      expect(supportSafari()).toBe(false);
+
+      vi.stubGlobal('navigator', {userAgent: UA_ANDROID_PIXEL});
+      expect(supportSafari()).toBe(false);
+    });
+
+    it.todo('returns `false` if user agent includes FxiOS');
   });
 
   describe('supportUUID()', () => {
