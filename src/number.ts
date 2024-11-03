@@ -1,6 +1,7 @@
 interface CalcProgressOptions {
   min?: number;
   max?: number;
+  // Consider: boolean | 'floor' | 'ceil' | 'trim';
   round?: boolean;
 }
 
