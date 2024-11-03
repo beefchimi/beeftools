@@ -1,11 +1,14 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "esnext",
     "module": "esnext",
     "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
     "moduleResolution": "bundler",
-    "strict": true,
+    "allowImportingTsExtensions": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": false,
@@ -13,11 +16,14 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "skipLibCheck": true
   },
-  "include": ["./src/**/*", "./config/**/*", "./vite.config.ts", "./eslint.config.mjs"],
-  "exclude": ["./node_modules/**/*"]
+  "include": ["src", "config", "vite.config.ts", "eslint.config.mjs"]
 }

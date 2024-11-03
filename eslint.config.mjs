@@ -5,13 +5,16 @@ import pluginPrettier from 'eslint-plugin-prettier/recommended';
 
 export default [
   {
+    files: ['**/*.ts', '**/*.mjs'],
     ignores: ['coverage/**', 'dist/**'],
+    ...configLove,
   },
-  configLove,
+
   pluginPrettier,
+
   {
     name: 'custom-rules',
-    files: ['**/*.ts', '**/*.js', '**/*.mjs'],
+    files: ['**/*.ts', '**/*.mjs'],
     languageOptions: {
       ...configLove.languageOptions,
       globals: {
@@ -23,6 +26,7 @@ export default [
     rules: {
       'no-console': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/no-magic-numbers': 'off',
       '@typescript-eslint/strict-boolean-expressions': 'off',
     },
   },
