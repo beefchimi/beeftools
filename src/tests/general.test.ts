@@ -5,8 +5,7 @@ import {objFilterNullish} from '../object';
 
 describe('general utilities', () => {
   describe('noop()', () => {
-    it('returns `undefined`', async () => {
-       
+    it('returns `undefined`', () => {
       const result = noop();
       expect(result).toBeUndefined();
     });
@@ -14,7 +13,7 @@ describe('general utilities', () => {
 
   describe('isEmpty()', () => {
     describe('automatic `true` result', () => {
-      it('returns `true` for nullish values', async () => {
+      it('returns `true` for nullish values', () => {
         const result1 = isEmpty();
         const result2 = isEmpty(undefined);
         const result3 = isEmpty(null);
@@ -24,7 +23,7 @@ describe('general utilities', () => {
         expect(result3).toBe(true);
       });
 
-      it('returns `true` for either `boolean`', async () => {
+      it('returns `true` for either `boolean`', () => {
         const result1 = isEmpty(false);
         const result2 = isEmpty(true);
 
@@ -32,7 +31,7 @@ describe('general utilities', () => {
         expect(result2).toBe(true);
       });
 
-      it('returns `true` for any `number`', async () => {
+      it('returns `true` for any `number`', () => {
         const result1 = isEmpty(-0);
         const result2 = isEmpty(0);
         const result3 = isEmpty(-1);
@@ -54,34 +53,34 @@ describe('general utilities', () => {
     });
 
     describe('arguments with `length` property', () => {
-      it('returns `true` for an empty `array`', async () => {
+      it('returns `true` for an empty `array`', () => {
         const result = isEmpty([]);
         expect(result).toBe(true);
       });
 
-      it('returns `false` for a populated `array`', async () => {
+      it('returns `false` for a populated `array`', () => {
         const result = isEmpty([0, false, 1000n]);
         expect(result).toBe(false);
       });
 
-      it('returns `true` for an empty `string`', async () => {
+      it('returns `true` for an empty `string`', () => {
         const result = isEmpty('');
         expect(result).toBe(true);
       });
 
-      it('returns `false` for a populated `string`', async () => {
+      it('returns `false` for a populated `string`', () => {
         const result = isEmpty('abc');
         expect(result).toBe(false);
       });
     });
 
     describe('arguments with `size` property', () => {
-      it('returns `true` for an empty `Map`', async () => {
+      it('returns `true` for an empty `Map`', () => {
         const result = isEmpty(new Map());
         expect(result).toBe(true);
       });
 
-      it('returns `false` for a populated `Map`', async () => {
+      it('returns `false` for a populated `Map`', () => {
         const result = isEmpty(
           new Map([
             ['foo', 'bar'],
@@ -91,24 +90,24 @@ describe('general utilities', () => {
         expect(result).toBe(false);
       });
 
-      it('returns `true` for an empty `Set`', async () => {
+      it('returns `true` for an empty `Set`', () => {
         const result = isEmpty(new Set());
         expect(result).toBe(true);
       });
 
-      it('returns `false` for a populated `Set`', async () => {
+      it('returns `false` for a populated `Set`', () => {
         const result = isEmpty(new Set([0, false, 1000n]));
         expect(result).toBe(false);
       });
     });
 
     describe('object arguments', () => {
-      it('returns `true` for an empty object', async () => {
+      it('returns `true` for an empty object', () => {
         const result = isEmpty({});
         expect(result).toBe(true);
       });
 
-      it('returns `true` for a filtered object that has no keys', async () => {
+      it('returns `true` for a filtered object that has no keys', () => {
         const mockObj = objFilterNullish({
           beef: null,
           tools: undefined,
@@ -118,7 +117,7 @@ describe('general utilities', () => {
         expect(result).toBe(true);
       });
 
-      it('returns `false` for a filtered object that has keys', async () => {
+      it('returns `false` for a filtered object that has keys', () => {
         const mockObj = objFilterNullish({
           foo: 1,
           bar: 2,

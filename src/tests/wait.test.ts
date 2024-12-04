@@ -44,7 +44,7 @@ describe('wait utilities', () => {
     const mockWaitMs = 1000;
     vi.useFakeTimers();
 
-    it('does not execute more than the timeout allows', async () => {
+    it('does not execute more than the timeout allows', () => {
       const mockFn = vi.fn();
       const debouncedFn = debounce(mockFn, mockWaitMs);
 
@@ -68,7 +68,7 @@ describe('wait utilities', () => {
       expect(mockFn).toHaveBeenCalledTimes(1);
     });
 
-    it('executes immediately followed by a timed execution', async () => {
+    it('executes immediately followed by a timed execution', () => {
       const mockFn = vi.fn();
       const debouncedFn = debounce(mockFn, mockWaitMs, true);
 
@@ -99,7 +99,7 @@ describe('wait utilities', () => {
     const mockWaitMs = 1000;
     vi.useFakeTimers();
 
-    it('executes immediately followed by a queue limited to 1 more execution', async () => {
+    it('executes immediately followed by a queue limited to 1 more execution', () => {
       const mockFn = vi.fn();
       const throttledFn = throttle(mockFn, mockWaitMs);
 

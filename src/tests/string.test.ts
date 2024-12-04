@@ -45,12 +45,12 @@ describe('string utilities', () => {
   });
 
   describe('capitalize()', () => {
-    it('capitalizes only the first letter', async () => {
+    it('capitalizes only the first letter', () => {
       const result = capitalize('hello world');
       expect(result).toBe('Hello world');
     });
 
-    it('trims whitespace', async () => {
+    it('trims whitespace', () => {
       const result = capitalize('  foo bar from Mars  ');
       expect(result).toBe('Foo bar from mars');
     });
@@ -89,46 +89,46 @@ describe('string utilities', () => {
   });
 
   describe('kebabToPascal()', () => {
-    it('converts the provided slug', async () => {
+    it('converts the provided slug', () => {
       const result = kebabToPascal('hello-world-foo-bar');
       expect(result).toBe('HelloWorldFooBar');
     });
 
-    it('trims whitespace', async () => {
+    it('trims whitespace', () => {
       const result = kebabToPascal('  Hello-it-is-me  ');
       expect(result).toBe('HelloItIsMe');
     });
   });
 
   describe('pascalToKebab()', () => {
-    it('converts the provided term', async () => {
+    it('converts the provided term', () => {
       const result = pascalToKebab('HelloWorldFooBar');
       expect(result).toBe('hello-world-foo-bar');
     });
 
-    it('trims whitespace', async () => {
+    it('trims whitespace', () => {
       const result = pascalToKebab('  HelloWorldFooBar   ');
       expect(result).toBe('hello-world-foo-bar');
     });
 
-    it('trims leading and trailing dashes', async () => {
+    it('trims leading and trailing dashes', () => {
       const result = pascalToKebab('---HelloWorldFooBar---');
       expect(result).toBe('hello-world-foo-bar');
     });
 
-    it('removes unsupported characters', async () => {
+    it('removes unsupported characters', () => {
       const result = pascalToKebab('FooBar.FromMars');
       expect(result).toBe('foo-bar-from-mars');
     });
   });
 
   describe('slugify()', () => {
-    it('converts the provided term', async () => {
+    it('converts the provided term', () => {
       const result = slugify('Hello World foo bar');
       expect(result).toBe('hello-world-foo-bar');
     });
 
-    it('trims whitespace', async () => {
+    it('trims whitespace', () => {
       const result = slugify(
         '  HelloWorldFooBar baz-quiz Cheese-Whiz-InTheFridge  ',
       );
@@ -139,7 +139,7 @@ describe('string utilities', () => {
   });
 
   describe('splitRetain()', () => {
-    it('splits the string by match', async () => {
+    it('splits the string by match', () => {
       const result = splitRetain('Hello world foo bar Beefchimi', 'world');
       expect(result).toStrictEqual(['Hello ', 'world', ' foo bar Beefchimi']);
     });

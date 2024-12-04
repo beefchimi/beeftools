@@ -6,6 +6,9 @@ export default mergeConfig(
   defineConfig({
     test: {
       setupFiles: 'config/tests-setup',
+      sequence: {
+        concurrent: true,
+      },
     },
   }),
 );

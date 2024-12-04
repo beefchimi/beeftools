@@ -38,4 +38,9 @@ export default tseslint.config(
       ],
     },
   },
+
+  // Test overrides
+  // We may need to disable the `require-await` rule if `async` is required
+  // for `sequence.concurrent` tests.
+  // {files: ['**/*.test.{ts,tsx}'], rules: {'@typescript-eslint/require-await': 'off'}},
 );

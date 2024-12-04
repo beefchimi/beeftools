@@ -7,7 +7,7 @@ export type Primitive =
   | undefined
   | null;
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export type Builtin = Primitive | Function | Date | Error | RegExp;
 
 export type AnyObj = Record<string, unknown>;
