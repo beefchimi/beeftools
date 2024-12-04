@@ -24,6 +24,5 @@ export function objFilterNullish<T = AnyObj>(obj = {}): T {
           ...accumulator,
           [current]: obj[current],
         };
-     
   }, {} as T);
 }

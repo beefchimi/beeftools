@@ -11,7 +11,6 @@ export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
   waitMs = 0,
   immediate = false,
 ) {
-   
   let timeout: TimeoutId | undefined;
 
   return function debounced(...args: Parameters<T>) {
@@ -39,7 +38,7 @@ export function throttle<T extends (...args: Parameters<T>) => ReturnType<T>>(
   intervalMs = 0,
 ) {
   let lastTimestamp = 0;
-   
+
   let timeout: TimeoutId | undefined;
 
   return function throttled(...args: Parameters<T>) {
