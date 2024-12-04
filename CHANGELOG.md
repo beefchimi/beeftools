@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.1.8
+
+### Patch Changes
+
+- 6250744: Revised some build tooling.
+
 ## 0.1.7
 
 ### Patch Changes
