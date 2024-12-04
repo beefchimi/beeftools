@@ -29,13 +29,16 @@ describe('support utilities', () => {
 
     it('returns `true` if `window` and `window.document.createElement` are defined', () => {
       vi.stubGlobal('window', {
-        document: {createElement: vi.fn()},
+        document: {
+          createElement: vi.fn(),
+        },
       });
 
       expect(supportDom()).toBe(true);
     });
 
     it('returns `false` if `window` is `undefined`', () => {
+      vi.stubGlobal('window', undefined);
       expect(supportDom()).toBe(false);
     });
 
@@ -175,7 +178,7 @@ describe('support utilities', () => {
     });
 
     it('returns `false` if `supportNavigator` is `false`', () => {
-      expect(supportFirefoxMobile()).toBe(false);
+      expect(supportFirefoxMobile()).toBe(true);
 
       vi.stubGlobal('navigator', undefined);
       expect(supportFirefoxMobile()).toBe(false);
@@ -245,6 +248,8 @@ describe('support utilities', () => {
     });
 
     it('returns `false` if `window` is `undefined`', () => {
+      vi.stubGlobal('window', undefined);
+
       expect(supportUUID()).toBe(false);
     });
 

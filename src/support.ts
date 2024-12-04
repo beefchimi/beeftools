@@ -5,7 +5,6 @@ export function supportDom() {
   // otherwise the server will throw a `ReferenceError`.
 
   return (
-     
     typeof window !== 'undefined' &&
     typeof window.document?.createElement !== 'undefined'
   );
@@ -53,7 +52,6 @@ export function supportUUID() {
   // otherwise the server will throw a `ReferenceError`.
 
   return (
-     
     typeof window !== 'undefined' &&
     typeof window.crypto?.randomUUID !== 'undefined'
   );
