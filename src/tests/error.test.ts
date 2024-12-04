@@ -55,14 +55,14 @@ describe('error utilities', () => {
   });
 
   describe('getErrorMessage()', () => {
-    it('returns message from basic object', async () => {
+    it('returns message from basic object', () => {
       const mockError = {message: 'foo'};
       const result = getErrorMessage(mockError);
 
       expect(result).toBe(mockError.message);
     });
 
-    it('returns message from Error', async () => {
+    it('returns message from Error', () => {
       const mockMessage = 'Foo';
       const mockError = new Error(mockMessage, {
         cause: 'bar',
@@ -73,7 +73,7 @@ describe('error utilities', () => {
       expect(result).toBe(mockMessage);
     });
 
-    it('returns stringified result when unknown', async () => {
+    it('returns stringified result when unknown', () => {
       const mockError = ['foo', true, {bar: false}, null];
       const result = getErrorMessage(mockError);
 

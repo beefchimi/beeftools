@@ -11,19 +11,19 @@ import {
 
 describe('array utilities', () => {
   describe('arrayDedupe()', () => {
-    it('removes duplicates within a single array', async () => {
+    it('removes duplicates within a single array', () => {
       const result = arrayDedupe([1, 2, 3, 1, 2, 3]);
       expect(result).toStrictEqual([1, 2, 3]);
     });
 
-    it('removes duplicates across multiple arrays', async () => {
+    it('removes duplicates across multiple arrays', () => {
       const result = arrayDedupe([1, 2, 3], [3, 2, 1], [4, 2, 0]);
       expect(result).toStrictEqual([1, 2, 3, 4, 0]);
     });
   });
 
   describe('arrayEquals()', () => {
-    it('returns `true` when matching', async () => {
+    it('returns `true` when matching', () => {
       const result = arrayEquals(
         [true, false, null, undefined, 0, 1, 'end'],
         [true, false, null, undefined, 0, 1, 'end'],
@@ -31,12 +31,12 @@ describe('array utilities', () => {
       expect(result).toBe(true);
     });
 
-    it('returns `false` when at least one value is unmatched', async () => {
+    it('returns `false` when at least one value is unmatched', () => {
       const result = arrayEquals([true, false], [false, true]);
       expect(result).toBe(false);
     });
 
-    it('returns `true` when sorting is applied ahead of time', async () => {
+    it('returns `true` when sorting is applied ahead of time', () => {
       const original1 = ['a', 'B', 'c', 'D', 'e', 'F'];
       const original2 = ['F', 'e', 'D', 'c', 'B', 'a'];
 
@@ -52,12 +52,12 @@ describe('array utilities', () => {
   });
 
   describe('arrayOfLength()', () => {
-    it('returns an empty array by default', async () => {
+    it('returns an empty array by default', () => {
       const result = arrayOfLength();
       expect(result).toStrictEqual([]);
     });
 
-    it('returns an array of incremented index values', async () => {
+    it('returns an array of incremented index values', () => {
       const mockLength = 6;
       const result = arrayOfLength(mockLength);
 
@@ -67,7 +67,7 @@ describe('array utilities', () => {
   });
 
   describe('arrayPaginate()', () => {
-    it('returns matching array if `pageSize` is less than or equal to the original array', async () => {
+    it('returns matching array if `pageSize` is less than or equal to the original array', () => {
       const original = [0, 1, 2, 3, 4];
       const paginated = arrayPaginate(original);
 
@@ -75,7 +75,7 @@ describe('array utilities', () => {
       expect(arrayEquals(original, paginated[0])).toBe(true);
     });
 
-    it('paginates the array', async () => {
+    it('paginates the array', () => {
       const original = [0, 1, 2, 3, 4];
       const paginated = arrayPaginate(original, 2);
 
@@ -89,7 +89,7 @@ describe('array utilities', () => {
   describe('arrayShuffle()', () => {
     // Since the shuffle is randomized, it is possible that
     // this test could occasionally fail.
-    it('returns a shuffled array with all equivalent values at difference indices', async () => {
+    it('returns a shuffled array with all equivalent values at difference indices', () => {
       const original = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
       const result = arrayShuffle(original);
 
@@ -98,13 +98,12 @@ describe('array utilities', () => {
       expect(result).not.toStrictEqual(original);
       expect(result).toHaveLength(original.length);
 
-      // eslint-disable-next-line @typescript-eslint/require-array-sort-compare
       expect(result.toSorted()).toStrictEqual(original);
     });
   });
 
   describe('typedObjectKeys()', () => {
-    it('returns the equivalent of Object.keys()', async () => {
+    it('returns the equivalent of Object.keys()', () => {
       const mockObj = {
         foo: 1,
         bar: 'two',

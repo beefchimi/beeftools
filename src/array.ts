@@ -43,4 +43,4 @@ export function arrayShuffle<T>(array: T[]): T[] {
 
 export const typedObjectKeys = Object.keys as <T extends object>(
   obj: T,
-) => Array<keyof T>;
+) => (keyof T)[];

@@ -38,6 +38,8 @@ export {
   capitalize,
   escapeStringRegexp,
   kebabToPascal,
+  pascalToKebab,
+  slugify,
   splitRetain,
 } from './string';
 

@@ -41,7 +41,7 @@ describe('object utilities', () => {
   });
 
   describe('objFilterNullish()', () => {
-    it('returns an object with all null and undefined entries removed', async () => {
+    it('returns an object with all null and undefined entries removed', () => {
       const mockObj = {
         foo: 1,
         bar: 2,

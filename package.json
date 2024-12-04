@@ -32,23 +32,24 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/beeftools.es.js",
-      "require": "./dist/beeftools.umd.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/beeftools.umd.js"
     }
   },
   "engines": {
-    "node": ">=20.16.0",
-    "npm": ">=10.8.0"
+    "node": ">=22.11.0",
+    "npm": ">=10.9.0"
   },
   "scripts": {
     "clean": "rm -rf coverage && rm -rf dist && rm -rf node_modules/.cache && rm -rf node_modules/.vite",
     "nuke": "npm run clean && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force",
-    "build": "npm run clean && tsc && vite build",
+    "build": "npm run clean && tsc -b && vite build",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
+    "typecheck": "tsc --noEmit",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest --run --coverage",
@@ -57,18 +58,20 @@
     "release:publish": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.7",
-    "@vitest/coverage-v8": "^2.0.5",
-    "@vitest/ui": "^2.0.5",
-    "eslint": "^8.57.0",
-    "eslint-config-love": "^62.0.0",
+    "@eslint/js": "^9.16.0",
+    "@changesets/cli": "^2.27.10",
+    "@types/node": "^22.10.1",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "globals": "^15.9.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.1",
-    "vite-plugin-dts": "^4.0.3",
-    "vitest": "^2.0.5"
+    "globals": "^15.13.0",
+    "prettier": "^3.4.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0",
+    "vite": "^6.0.2",
+    "vite-plugin-dts": "^4.3.0",
+    "vitest": "^2.1.8"
   }
 }
