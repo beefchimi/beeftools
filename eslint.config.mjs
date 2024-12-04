@@ -25,6 +25,7 @@ export default [
     },
     rules: {
       'no-console': 'warn',
+      'eslint-comments/require-description': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-magic-numbers': 'off',
       '@typescript-eslint/strict-boolean-expressions': 'off',

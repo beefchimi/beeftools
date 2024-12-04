@@ -11,7 +11,4 @@ export default defineConfig({
     minify: false,
   },
   plugins: [dts({rollupTypes: true})],
-  test: {
-    setupFiles: 'config/tests-setup',
-  },
 });

@@ -21,6 +21,7 @@ Temporary Items
 .apdisk
 
 # Caches
+.astro/
 .cache
 .eslintcache
 .sass-cache
@@ -28,6 +29,7 @@ Temporary Items
 
 # Build
 build
+dev-dist
 dist
 dist-ssr
 storybook-static
@@ -59,6 +61,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+*storybook.log
 
 # Reports
 assets-manifest.json
