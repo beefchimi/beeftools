@@ -14,7 +14,7 @@ export function isObject(
 }
 
 export function objFilterNullish<T = AnyObj>(obj = {}): T {
-  const keys = Object.keys(obj) as Array<keyof typeof obj>;
+  const keys = Object.keys(obj) as (keyof typeof obj)[];
 
   // NOTE: This filter function is not recursive!
   return keys.reduce<T>((accumulator, current) => {
@@ -24,6 +24,6 @@ export function objFilterNullish<T = AnyObj>(obj = {}): T {
           ...accumulator,
           [current]: obj[current],
         };
-    // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter, @typescript-eslint/consistent-type-assertions
+     
   }, {} as T);
 }

@@ -98,7 +98,7 @@ describe('array utilities', () => {
       expect(result).not.toStrictEqual(original);
       expect(result).toHaveLength(original.length);
 
-      // eslint-disable-next-line @typescript-eslint/require-array-sort-compare
+       
       expect(result.toSorted()).toStrictEqual(original);
     });
   });

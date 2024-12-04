@@ -5,7 +5,7 @@ export function supportDom() {
   // otherwise the server will throw a `ReferenceError`.
 
   return (
-    // eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+     
     typeof window !== 'undefined' &&
     typeof window.document?.createElement !== 'undefined'
   );
@@ -53,7 +53,7 @@ export function supportUUID() {
   // otherwise the server will throw a `ReferenceError`.
 
   return (
-    // eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+     
     typeof window !== 'undefined' &&
     typeof window.crypto?.randomUUID !== 'undefined'
   );

@@ -6,7 +6,7 @@ import {objFilterNullish} from '../object';
 describe('general utilities', () => {
   describe('noop()', () => {
     it('returns `undefined`', async () => {
-      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+       
       const result = noop();
       expect(result).toBeUndefined();
     });

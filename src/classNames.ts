@@ -2,7 +2,7 @@ import {isString} from './string';
 
 type Variants = Record<string, string | number | boolean | null | undefined>;
 
-type ClassNameArgs = Array<Variants | string | undefined>;
+type ClassNameArgs = (Variants | string | undefined)[];
 type CSSModuleClasses = Readonly<Record<string, string>>;
 
 function convertVariantsToNames(variants?: Variants) {

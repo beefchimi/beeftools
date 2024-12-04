@@ -11,7 +11,7 @@ export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
   waitMs = 0,
   immediate = false,
 ) {
-  // eslint-disable-next-line @typescript-eslint/init-declarations
+   
   let timeout: TimeoutId | undefined;
 
   return function debounced(...args: Parameters<T>) {
@@ -39,7 +39,7 @@ export function throttle<T extends (...args: Parameters<T>) => ReturnType<T>>(
   intervalMs = 0,
 ) {
   let lastTimestamp = 0;
-  // eslint-disable-next-line @typescript-eslint/init-declarations
+   
   let timeout: TimeoutId | undefined;
 
   return function throttled(...args: Parameters<T>) {
