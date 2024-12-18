@@ -7,7 +7,13 @@ type CSSModuleClasses = Readonly<Record<string, string>>;
 
 function convertVariantsToNames(variants?: Variants) {
   return variants
-    ? Object.keys(variants).filter((key) => Boolean(variants[key]))
+    ? Object.keys(variants).filter((key) => {
+        // Ideally, we allow explicit `undefined` and `null` strings...
+        // but unfortunately, computed property names could end up
+        // as 'undefined' or 'null', so we need to handle for this.
+        const forbiddenKey = key === 'undefined' || key === 'null';
+        return !forbiddenKey && Boolean(variants[key]);
+      })
     : [];
 }
 
