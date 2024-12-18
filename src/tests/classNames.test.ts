@@ -15,12 +15,41 @@ describe('class name utilities', () => {
     });
 
     it('handles undefined or empty arguments', () => {
-      const result = classNames('base', undefined, {}, 'last');
-      expect(result).toBe('base last');
+      const nullish = null;
+
+      const result = classNames(
+        'start',
+        undefined,
+        {},
+        {
+          middle: Boolean([]),
+          // @ts-expect-error - Required for this test.
+          [undefined]: 1,
+          // @ts-expect-error - Required for this test.
+          [nullish]: true,
+        },
+        'end',
+      );
+
+      expect(result).toBe('start middle end');
+    });
+
+    it('handles `undefined` or `null` as explicit keys', () => {
+      const result = classNames(
+        'start',
+        {
+          middle: Boolean([]),
+          undefined: 1,
+          null: true,
+        },
+        'end',
+      );
+
+      expect(result).toBe('start middle end');
     });
 
     it('trims whitespace', () => {
-      const result = classNames(undefined, 'first-variant', {}, 'last var  ');
+      const result = classNames(undefined, ' first-variant', {}, 'last var  ');
       expect(result).toBe('first-variant last var');
     });
 
