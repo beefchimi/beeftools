@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.1.9
+
+### Patch Changes
+
+- 58b3c89: Prevent explicit undefined or null keys passed to classNames args.
+
 ## 0.1.8
 
 ### Patch Changes
