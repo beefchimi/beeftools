@@ -11,9 +11,9 @@ jobs:
 
     steps:
       - name: 🗳️ Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 🍭 Apply PR labels
-        uses: actions/labeler@v5
+        uses: actions/labeler@v6
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
