@@ -38,8 +38,8 @@
     }
   },
   "engines": {
-    "node": ">=22.12.0",
-    "npm": ">=10.9.0"
+    "node": ">=24.14.0",
+    "npm": ">=11.11.0"
   },
   "scripts": {
     "clean": "rm -rf coverage && rm -rf dist && rm -rf node_modules/.cache && rm -rf node_modules/.vite",
