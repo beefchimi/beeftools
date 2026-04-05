@@ -6,6 +6,8 @@
     "suspicious": "warn"
   },
   "rules": {
+    "no-console": "error",
+    "typescript/consistent-type-imports": "error",
     "no-unused-vars": [
       "error",
       {
