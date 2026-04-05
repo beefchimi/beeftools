@@ -7,7 +7,6 @@
     "christian-kohler.path-intellisense",
     "aaron-bond.better-comments",
     "DavidAnson.vscode-markdownlint",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "oxc.oxc-vscode"
   ]
 }

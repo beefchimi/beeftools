@@ -23,7 +23,6 @@ Temporary Items
 # Caches
 .astro/
 .cache
-.eslintcache
 .sass-cache
 *.tsbuildinfo
 

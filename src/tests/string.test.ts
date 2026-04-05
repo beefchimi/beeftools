@@ -58,9 +58,7 @@ describe('string utilities', () => {
 
   describe('escapeStringRegexp()', () => {
     it('escapes special characters', () => {
-      // prettier-ignore
-      // eslint-disable-next-line no-useless-escape
-      const input = 'start_|\\{}()[\]^$+*?.-_end';
+      const input = 'start_|\\{}()[]^$+*?.-_end';
       const result = escapeStringRegexp(input);
 
       expect(result).toBe(

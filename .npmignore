@@ -5,7 +5,6 @@ scrap
 .git
 .babelrc
 .editorconfig
-.eslintignore
 
 # Caches
 .cache
