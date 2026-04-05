@@ -1,0 +1,13 @@
+{
+  "tab_size": 2,
+  "formatter": {
+    "external": {
+      "command": "npx",
+      "arguments": ["oxfmt", "--stdin-filepath", "{buffer_path}"]
+    }
+  },
+  "format_on_save": "on",
+  "auto_install_extensions": {
+    "oxc": true
+  }
+}
