@@ -22,5 +22,5 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
   },
-  "include": ["src", "config", "vite.config.ts", "vitest.config.ts", "eslint.config.mjs"]
+  "include": ["src", "config", "vite.config.ts", "vitest.config.ts"]
 }

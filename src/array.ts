@@ -2,7 +2,7 @@ import type {Primitive} from './types';
 
 export function arrayDedupe<T extends unknown[]>(...arrays: T[]) {
   // Not recursive (will not dedupe nested arrays).
-  return [...new Set([...arrays.flat()])];
+  return [...new Set(arrays.flat())];
 }
 
 export function arrayEquals(one: Primitive[], two: Primitive[]) {
@@ -37,7 +37,7 @@ export function arrayPaginate<T>(array: T[], pageSize = 10): T[][] {
 export function arrayShuffle<T>(array: T[]): T[] {
   return array
     .map((item) => ({sort: Math.random(), value: item}))
-    .sort((one, two) => one.sort - two.sort)
+    .toSorted((one, two) => one.sort - two.sort)
     .map((item) => item.value);
 }
 
