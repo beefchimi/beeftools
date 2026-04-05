@@ -41,6 +41,4 @@ export function arrayShuffle<T>(array: T[]): T[] {
     .map((item) => item.value);
 }
 
-export const typedObjectKeys = Object.keys as <T extends object>(
-  obj: T,
-) => (keyof T)[];
+export const typedObjectKeys = Object.keys as <T extends object>(obj: T) => (keyof T)[];

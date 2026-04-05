@@ -1,7 +1,4 @@
-export function isString(
-  item?: unknown,
-  requireLength = false,
-): item is string {
+export function isString(item?: unknown, requireLength = false): item is string {
   const passed = typeof item === 'string';
   return passed && requireLength ? item.length > 0 : passed;
 }
