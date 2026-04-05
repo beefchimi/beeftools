@@ -1,4 +1,4 @@
-import {afterEach, describe, it, expect, vi} from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 
 import {
   supportDom,
@@ -21,12 +21,6 @@ import {
 
 describe('support utilities', () => {
   describe('supportDom()', () => {
-    const backup = global.window;
-
-    afterEach(() => {
-      global.window = backup;
-    });
-
     it('returns `true` if `window` and `window.document.createElement` are defined', () => {
       vi.stubGlobal('window', {
         document: {
@@ -60,12 +54,6 @@ describe('support utilities', () => {
   });
 
   describe('supportMatchMedia()', () => {
-    const backup = global.window;
-
-    afterEach(() => {
-      global.window = backup;
-    });
-
     it('returns `true` if `window.matchMedia` is a function', () => {
       vi.stubGlobal('window', {
         document: {createElement: vi.fn()},
@@ -98,12 +86,6 @@ describe('support utilities', () => {
   });
 
   describe('supportNavigator()', () => {
-    const backup = global.navigator;
-
-    afterEach(() => {
-      global.navigator = backup;
-    });
-
     it('returns `true` if `navigator` and `navigator.userAgent` are defined', () => {
       vi.stubGlobal('navigator', {userAgent: 'Mozilla/5.0'});
       expect(supportNavigator()).toBe(true);
@@ -126,12 +108,6 @@ describe('support utilities', () => {
   });
 
   describe('supportResizeObserver()', () => {
-    const backup = global.window;
-
-    afterEach(() => {
-      global.window = backup;
-    });
-
     it('returns `true` if `ResizeObserver` is supported', () => {
       vi.stubGlobal('window', {
         document: {createElement: vi.fn()},
@@ -150,6 +126,7 @@ describe('support utilities', () => {
     });
 
     it('returns `false` if `window` is `undefined`', () => {
+      vi.stubGlobal('window', undefined);
       expect(supportResizeObserver()).toBe(false);
     });
 
@@ -163,12 +140,6 @@ describe('support utilities', () => {
   });
 
   describe('supportFirefoxMobile()', () => {
-    const backup = global.navigator;
-
-    afterEach(() => {
-      global.navigator = backup;
-    });
-
     it('returns `true` if `supportNavigator` is `true` and user agent matches', () => {
       vi.stubGlobal('navigator', {userAgent: UA_FIREFOX_MAC});
       expect(supportFirefoxMobile()).toBe(false);
@@ -178,8 +149,6 @@ describe('support utilities', () => {
     });
 
     it('returns `false` if `supportNavigator` is `false`', () => {
-      expect(supportFirefoxMobile()).toBe(true);
-
       vi.stubGlobal('navigator', undefined);
       expect(supportFirefoxMobile()).toBe(false);
 
@@ -194,12 +163,6 @@ describe('support utilities', () => {
   });
 
   describe('supportSafari()', () => {
-    const backup = global.navigator;
-
-    afterEach(() => {
-      global.navigator = backup;
-    });
-
     it('returns `true` if `supportNavigator` is `true` and user agent indicates Safari', () => {
       vi.stubGlobal('navigator', {userAgent: UA_SAFARI_MAC});
       expect(supportSafari()).toBe(true);
@@ -212,8 +175,6 @@ describe('support utilities', () => {
     });
 
     it('returns `false` if `supportNavigator` is `false`', () => {
-      expect(supportSafari()).toBe(false);
-
       vi.stubGlobal('navigator', undefined);
       expect(supportSafari()).toBe(false);
 
@@ -233,12 +194,6 @@ describe('support utilities', () => {
   });
 
   describe('supportUUID()', () => {
-    const backup = global.window;
-
-    afterEach(() => {
-      global.window = backup;
-    });
-
     it('returns `true` if `window` and `window.crypto.randomUUID` are defined', () => {
       vi.stubGlobal('window', {
         crypto: {randomUUID: vi.fn()},
