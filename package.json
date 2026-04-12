@@ -1,6 +1,6 @@
 {
   "name": "beeftools",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Common front-end utilities and types",
   "author": "Curtis Dulmage",
   "license": "ISC",

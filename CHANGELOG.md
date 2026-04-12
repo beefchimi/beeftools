@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.2.0
+
+### Minor Changes
+
+- fe708a0: Increase minimum node version to v24.
+
 ## 0.1.9
 
 ### Patch Changes
