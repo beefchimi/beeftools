@@ -1,0 +1,7 @@
+{
+  "bracketSpacing": false,
+  "singleQuote": true,
+  "sortImports": true,
+  "sortPackageJson": false,
+  "ignorePatterns": ["package-lock.json", "tsconfig.json", ".changeset/*.md"]
+}

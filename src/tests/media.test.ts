@@ -1,15 +1,9 @@
-import {afterEach, describe, it, expect, vi} from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 
 import {prefersReducedMotion} from '../media';
 
 describe('media utilities', () => {
   describe('prefersReducedMotion()', () => {
-    const backup = global.window;
-
-    afterEach(() => {
-      global.window = backup;
-    });
-
     it('returns `true` if user prefers reduced motion', () => {
       vi.stubGlobal('window', {
         document: {createElement: vi.fn()},

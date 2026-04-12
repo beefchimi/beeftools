@@ -58,14 +58,10 @@ describe('string utilities', () => {
 
   describe('escapeStringRegexp()', () => {
     it('escapes special characters', () => {
-      // prettier-ignore
-      // eslint-disable-next-line no-useless-escape
-      const input = 'start_|\\{}()[\]^$+*?.-_end';
+      const input = 'start_|\\{}()[]^$+*?.-_end';
       const result = escapeStringRegexp(input);
 
-      expect(result).toBe(
-        'start_\\|\\\\\\{\\}\\(\\)\\[\\]\\^\\$\\+\\*\\?\\.\\x2d_end',
-      );
+      expect(result).toBe('start_\\|\\\\\\{\\}\\(\\)\\[\\]\\^\\$\\+\\*\\?\\.\\x2d_end');
     });
 
     it('escapes a dash character', () => {
@@ -129,12 +125,8 @@ describe('string utilities', () => {
     });
 
     it('trims whitespace', () => {
-      const result = slugify(
-        '  HelloWorldFooBar baz-quiz Cheese-Whiz-InTheFridge  ',
-      );
-      expect(result).toBe(
-        'hello-world-foo-bar-baz-quiz-cheese-whiz-in-the-fridge',
-      );
+      const result = slugify('  HelloWorldFooBar baz-quiz Cheese-Whiz-InTheFridge  ');
+      expect(result).toBe('hello-world-foo-bar-baz-quiz-cheese-whiz-in-the-fridge');
     });
   });
 

@@ -1,9 +1,6 @@
 import type {AnyObj} from './types';
 
-export function isObject(
-  value?: unknown,
-  requireSize = false,
-): value is AnyObj {
+export function isObject(value?: unknown, requireSize = false): value is AnyObj {
   const passed =
     value !== null &&
     typeof value === 'object' &&

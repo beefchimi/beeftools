@@ -19,19 +19,13 @@ function convertVariantsToNames(variants?: Variants) {
 
 export function classNames(baseName = '', ...args: ClassNameArgs) {
   const additionalNames = args.length
-    ? args.flatMap((addition) =>
-        isString(addition) ? addition : convertVariantsToNames(addition),
-      )
+    ? args.flatMap((addition) => (isString(addition) ? addition : convertVariantsToNames(addition)))
     : [];
 
   return [baseName, ...additionalNames.filter(Boolean)].join(' ').trim();
 }
 
-export function variationName(
-  prefix = '',
-  variant?: string,
-  styles?: CSSModuleClasses,
-) {
+export function variationName(prefix = '', variant?: string, styles?: CSSModuleClasses) {
   if (!prefix || !variant) return '';
 
   const firstLetter = variant.charAt(0).toUpperCase();

@@ -1,7 +1,6 @@
 import {objFilterNullish} from './object';
 import {isString} from './string';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 export function noop() {}
 
 export function isEmpty(

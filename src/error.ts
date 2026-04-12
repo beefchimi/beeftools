@@ -28,9 +28,7 @@ export function convertUnknownError(error: unknown): BasicError {
 
 export function getErrorMessage(error: unknown) {
   const {message} = convertUnknownError(error);
-  const validMessage = Boolean(
-    isString(message, true) && message !== 'null' && message !== '{}',
-  );
+  const validMessage = Boolean(isString(message, true) && message !== 'null' && message !== '{}');
 
   return validMessage ? message : GENERIC_ERROR_MESSAGE;
 }

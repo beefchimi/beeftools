@@ -3,10 +3,6 @@
     "source.fixAll": "explicit"
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // "eslint.options": {"configFile": "eslint.config.mjs"},
-  "eslint.validate": ["javascript", "typescript"],
-  "eslint.useFlatConfig": true,
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "files.exclude": {
