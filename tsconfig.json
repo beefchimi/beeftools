@@ -20,7 +20,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": true
   },
   "include": ["src", "config", "vite.config.ts", "vitest.config.ts"]
 }
