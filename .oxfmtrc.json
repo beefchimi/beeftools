@@ -1,7 +1,8 @@
 {
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "bracketSpacing": false,
   "singleQuote": true,
   "sortImports": true,
   "sortPackageJson": false,
-  "ignorePatterns": ["package-lock.json", "tsconfig.json", ".changeset/*.md"]
+  "ignorePatterns": ["package-lock.json", ".changeset/*.md"]
 }

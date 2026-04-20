@@ -22,12 +22,15 @@
   - changed-files:
       - any-glob-to-any-file:
           [
+            '.changeset/**',
+            '.claude/**',
             '.github/**',
             '.vscode/**',
+            '.zed/**',
             '.editorconfig',
             '.*ignore',
             '.nvmrc',
-            '.prettier*',
+            '.ox*.json',
             'config/**',
             '*.config.*',
             'package*.json',
