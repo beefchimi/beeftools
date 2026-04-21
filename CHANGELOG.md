@@ -1,5 +1,11 @@
 # beeftools
 
+## 0.2.1
+
+### Patch Changes
+
+- cf82091: Tweak npm ignore.
+
 ## 0.2.0
 
 ### Minor Changes
